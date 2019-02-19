@@ -1,0 +1,28 @@
+<section class="mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-8">
+			<h1 class="display-4"><%= Time.now.strftime('%A, %B %d') %></h1>
+		</div>
+		<div class="col-md-4 text-right text-muted pt-2">
+			<div class="row text-center">
+				<div class="col-4">
+					<%= link_to timer_path,
+										  class: "text-dark",
+											title: "Go to the Timer" do %>
+						<i class="fa fa-home fa-3x"></i>
+					<% end %>
+				</div>
+				<div class="col-4">
+					<%= link_to logs_path,
+											class: "text-dark",
+											title: "View Log History" do %>
+						<i class="fa fa-history fa-3x"></i>
+					<% end %>
+				</div>
+				<div class="col-4">
+					<i class="fa fa-sign-in-alt fa-3x"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

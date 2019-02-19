@@ -1,0 +1,43 @@
+.list-group-item {
+	border: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+.log-name-sec {
+	margin-top: 9em;
+
+	h1 {
+		font-weight: 200;
+	}
+}
+#log_name {
+	background: none;
+  border: none;
+  border-bottom: 2px solid #000;
+  border-radius: 0;
+	height: 2.5em;
+  padding : 0 10px;
+  margin: 0;
+  width : 100%;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.timer-btn {
+	font-size: 18.5em;
+}
+
+#timerControl {
+	margin-top: 8em;
+
+	.fa-play, .fa-stop {
+		text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee,
+					    	 2px 1px 1px #ccc, 1px 2px 1px #eee,
+					    	 3px 2px 1px #ccc, 2px 3px 1px #eee,
+					    	 4px 3px 1px #ccc, 3px 4px 1px #eee,
+					    	 5px 4px 1px #ccc, 4px 5px 1px #eee,
+					    	 6px 5px 1px #ccc, 5px 6px 1px #eee,
+					    	 7px 6px 1px #ccc;
+	}
+}
