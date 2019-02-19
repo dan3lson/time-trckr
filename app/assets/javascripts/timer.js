@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', function() {
 		$playIcon.remove();
 		$stopBtn = $("<i>", { class: "fa fa-stop timer-btn" });
 		$playBtn.append($stopBtn);
+		$(".fa-stop").css("animation", "none");
 	});
 
 	$("#timerControl").on("click", ".fa-stop", function() {
