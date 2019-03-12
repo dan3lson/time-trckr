@@ -1,8 +1,0 @@
-$(".invalid-feedback").remove();
-$nameInput = $("#log_name");
-$nameInput.addClass("is-invalid", "shake");
-$(".log-name-sec").find("h1").addClass("text-danger");
-$nameInput.css("border-bottom", "2px solid #DC3545");
-$feedback = $("<div>", { class: "invalid-feedback" });
-$feedback.html("Please write what you worked on.");
-$feedback.insertAfter($nameInput);

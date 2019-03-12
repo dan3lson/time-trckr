@@ -4,8 +4,8 @@
 10.times do |i|
   log = Log.create!(
     name: "Log name +#{i}",
-    started_at: Time.now,
-    stopped_at: DateTime.now
+    started_at: 10.minutes.ago,
+    stopped_at: Time.current
   )
   log.tags.create!(name: "Tag name +#{i}") if i.even?
 end

@@ -1,0 +1,34 @@
+resetFormState();
+$newLogSection = $(".new-log-section");
+$nameInput = $newLogSection.find("#log_name");
+$minutesInput = $newLogSection.find("#log_minutes");
+
+if ($nameInput.val() == "") {
+	$("h1:eq(1)").addClass("text-danger");
+	$nameInput.addClass("input-error");
+	$nameFeedback = $("<div>", { class: "invalid-feedback d-block" });
+	$nameFeedback.html("Please write what you worked on.");
+	$nameFeedback.insertAfter($nameInput);
+}
+
+if ($minutesInput.val() == "") {
+	$("h1:eq(2)").addClass("text-danger");
+	$minutesInput.addClass("input-error");
+	$minutesFeedback = $("<div>", { class: "invalid-feedback d-block" });
+	$minutesFeedback.html("Please write how long it took.");
+	$minutesFeedback.insertAfter($minutesInput);
+}
+
+if (parseInt($minutesInput.val()) < 1) {
+	$("h1:eq(2)").addClass("text-danger");
+	$minutesInput.addClass("input-error");
+	$minutesFeedback = $("<div>", { class: "invalid-feedback d-block" });
+	$minutesFeedback.html("Please write a number greater than 0.");
+	$minutesFeedback.insertAfter($minutesInput);
+}
+
+function resetFormState() {
+	$(".invalid-feedback").remove();
+	$(".form-control").removeClass("input-error");
+	$(".new-log-section").find("h1").removeClass("text-danger");
+}

@@ -1,0 +1,20 @@
+<h1>What did you work on?</h1>
+<%= form_with url: timers_path, scope: "log" do |f| %>
+	<div>
+		<%= f.label :name, class: "sr-only" %>
+		<%= f.text_field :name,
+										 class: "form-control",
+										 placeholder: "e.g. Take a 'quick' nap" %>
+	</div>
+	<div>
+		<%= f.hidden_field :started_at %>
+		<%= f.hidden_field :stopped_at %>
+	</div>
+	<div class="mt-4">
+		<%= f.submit "Done", class: "btn btn-primary btn-lg" %>
+		<%= link_to "Cancel",
+							  timer_path,
+								role: "button",
+								class: "btn btn-outline-secondary btn-lg" %>
+	</div>
+<% end %>

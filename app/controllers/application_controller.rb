@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
   private
 
   def invalid_record(_error)
-    flash.now[:danger] = 'Name is required'
     respond_to do |format|
-      format.js { render template: 'logs/invalid_record.js.erb' }
+      format.js { render template: 'shared/invalid_record.js.erb' }
     end
   end
 end

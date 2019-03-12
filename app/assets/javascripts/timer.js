@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
 		$('input[name="log[stopped_at]"]').val(stopped_at);
 		console.log("stopped", stopped_at);
 		$stopIcon = $("#timerControl").remove();
-		$(".log-name-sec").removeClass("d-none");
+		$(".new-log-section").removeClass("d-none");
 		$nameInput = $("#log_name");
 		$nameInput.focus();
 	});

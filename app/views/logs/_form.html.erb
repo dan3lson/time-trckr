@@ -1,17 +1,22 @@
 <%= form_with model: log do |f| %>
-	<%= f.label :name, class: "sr-only" %>
-	<%= f.text_field :name,
-								   class: "form-control",
-									 placeholder: "e.g. Take a 'quick' nap" %>
-	<div class="input-group">
+	<div>
+		<h1>What did you work on?</h1>
+		<%= f.label :name, class: "sr-only" %>
+		<%= f.text_field :name,
+									   class: "form-control",
+										 placeholder: "e.g. Take a 'quick' nap" %>
 	</div>
-	<%= f.hidden_field :started_at %>
-	<%= f.hidden_field :stopped_at %>
-	<div class="mt-4">
-		<%= f.submit "Done", class: "btn btn-primary btn-lg" %>
+  <div class="mt-5">
+		<h1>How many minutes did it take?</h1>
+		<%= f.text_field :minutes,
+									   class: "form-control",
+										 placeholder: "e.g. 112" %>
+  </div>
+	<div class="mt-4 text-right">
+		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
 		<%= link_to "Cancel",
 							  timer_path,
 								role: "button",
-								class: "btn btn-outline-secondary btn-lg" %>
+								class: "btn btn-outline-dark btn-lg" %>
 	</div>
 <% end %>

@@ -8,15 +8,31 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Log.new(logs_params)
+    @minutes = params[:log][:minutes].to_i
+    @started_at = @minutes.minutes.ago
+    @stopped_at = Time.current
+    @log = Log.new(
+      name: params[:log][:name],
+      started_at: @started_at,
+      stopped_at: @stopped_at
+    )
+    raise ActiveRecord::RecordInvalid if @minutes.zero?
+
     @log.save!
     flash[:success] = 'Log successfully created'
+    redirect_to logs_path
+  end
+
+  def destroy
+    @log = Log.find(params[:id])
+    @log.destroy!
+    flash[:success] = 'Log successfully removed'
     redirect_to logs_path
   end
 
   private
 
   def logs_params
-    params.require(:log).permit(:name, :started_at, :stopped_at, tags: [])
+    params.require(:log).permit(:name, tags: [])
   end
 end

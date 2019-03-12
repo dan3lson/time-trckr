@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'logs#new'
-  get 'timer', to: 'logs#new'
-  resources :logs, only: %i[index new create]
+  root 'timers#new'
+  get 'timer', to: 'timers#new'
+  resources :timers, only: %i[new create]
+  resources :logs, only: %i[index new create destroy]
 end
