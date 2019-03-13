@@ -16,7 +16,7 @@ class LogsController < ApplicationController
       started_at: @started_at,
       stopped_at: @stopped_at
     )
-    raise ActiveRecord::RecordInvalid if @minutes.zero?
+    raise ActiveRecord::RecordInvalid unless @minutes.positive?
 
     @log.save!
     flash[:success] = 'Log successfully created'
