@@ -39,6 +39,6 @@ class Log < ApplicationRecord
   # @return Float
   #
   def self.hours_for_today
-    today.select(:started_at, :stopped_at).map(&:hours).sum
+    today.select(:started_at, :stopped_at).map(&:hours).sum.round(2)
   end
 end
