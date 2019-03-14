@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
+  before_action :require_login
+
   def index
-    @logs = Log.today.latest
+    @logs = current_user.logs.today.latest
   end
 
   def new
@@ -9,17 +11,15 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Log.new(log_params)
-    raise ActiveRecord::RecordInvalid unless @time.positive?
+    raise ActiveRecord::RecordInvalid unless time.positive?
 
-    @log.save!
+    current_user.logs.create!(log_params)
     flash[:success] = 'Log successfully created'
     redirect_to logs_path
   end
 
   def destroy
-    @log = Log.find(params[:id])
-    @log.destroy!
+    current_user.logs.find(params[:id]).destroy!
     flash[:success] = 'Log successfully removed'
     redirect_to logs_path
   end
@@ -27,13 +27,16 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    @time = params[:log][:minutes].to_i
     {
       name: params[:log][:name],
-      started_at: @time.minutes.ago,
+      started_at: time.minutes.ago,
       stopped_at: Time.current,
       tag_ids: params[:log][:tag_ids]
     }
+  end
+
+  def time
+    params[:log][:minutes].to_i
   end
 
   def raw_params

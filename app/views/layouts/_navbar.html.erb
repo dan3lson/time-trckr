@@ -28,7 +28,22 @@
 					<% end %>
 				</div>
 				<div class="col-3">
-					<i class="fa fa-sign-in-alt fa-3x"></i>
+					<% if signed_in? %>
+						<%= link_to sign_out_path,
+											  role: "button",
+												class: "text-dark",
+												title: "Sign out",
+												method: :delete do %>
+							<i class="fa fa-sign-out-alt fa-3x"></i>
+						<% end %>
+					<% else %>
+						<%= link_to sign_in_path,
+												role: "button",
+												class: "text-dark",
+												title: "Sign in" do %>
+							<i class="fa fa-sign-in-alt fa-3x"></i>
+						<% end %>
+					<% end %>
 				</div>
 			</div>
 		</div>

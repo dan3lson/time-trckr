@@ -1,12 +1,13 @@
 class Log < ApplicationRecord
   # Associations
-  has_many :logs_tags,   dependent: :destroy
-  has_many :tags,        through: :logs_tags
+  belongs_to :user
+  has_many   :logs_tags,   dependent: :destroy
+  has_many   :tags,        through: :logs_tags
 
   # Validations
-  validates :name,       presence: true
-  validates :started_at, presence: true
-  validates :stopped_at, presence: true
+  validates :name,         presence: true
+  validates :started_at,   presence: true
+  validates :stopped_at,   presence: true
 
   # Scopes
   scope :latest, -> { order(created_at: :desc) }

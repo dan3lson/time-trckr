@@ -1,0 +1,29 @@
+<%= form_with url: session_path, scope: :session do |f| %>
+  <div class="text-field">
+    <h1>Email</h1>
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.text_field :email, type: "email" %>
+  </div>
+
+  <div class="password-field mt-5">
+    <h1>Password</h1>
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="submit-field mt-4 text-right">
+    <%= f.submit "Sign in", class: "btn btn-dark btn-lg" %>
+    <% if Clearance.configuration.allow_sign_up? %>
+      <%= link_to t(".sign_up"),
+                  sign_up_path,
+                  role: "button",
+                  title: "Sign up if you don't have an account",
+                  class: "btn btn-outline-dark btn-lg" %>
+    <% end %>
+    <%#= link_to t(".forgot_password"),
+                new_password_path,
+                role: "button",
+                title: "Click here if you forgot your password",
+                class: "btn btn-outline-dark btn-lg" %>
+  </div>
+<% end %>

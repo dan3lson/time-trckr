@@ -1,12 +1,13 @@
 class TimersController < ApplicationController
+  before_action :require_login
+
   def new
     @log = Log.new
     @tags = Tag.all
   end
 
   def create
-    @log = Log.new(logs_params)
-    @log.save!
+    current_user.logs.create!(logs_params)
     flash[:success] = 'Log successfully created'
     redirect_to logs_path
   end

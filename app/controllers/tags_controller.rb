@@ -1,6 +1,8 @@
 class TagsController < ApplicationController
+  before_action :require_login
+
   def index
-    @tags = Tag.all
+    @tags = current_user.tags
   end
 
   def new
@@ -8,13 +10,13 @@ class TagsController < ApplicationController
   end
 
   def create
-    Tag.create!(tags_params)
+    current_user.tags.create!(tags_params)
     flash[:success] = 'Tag successfully created'
     redirect_to tags_path
   end
 
   def destroy
-    @tag = Tag.find(params[:id])
+    @tag = current_user.tags.find(params[:id])
     @tag.destroy!
     flash[:success] = 'Tag successfully removed'
     redirect_to tags_path

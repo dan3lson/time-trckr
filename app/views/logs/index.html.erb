@@ -1,7 +1,7 @@
 <section id="logs">
 	<p class="lead">
 		All in a day's work:
-		<%= Log.hours_for_today %>h
+		<%= current_user.hours_for_today %>h
 	</p>
 	<ul class="list-group list-group-flush">
 		<% @logs.each do |log| %>

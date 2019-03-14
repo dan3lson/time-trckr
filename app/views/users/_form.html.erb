@@ -1,0 +1,22 @@
+<%= form_with model: @user do |f| %>
+  <div class="text-field">
+    <h1>Email</h1>
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.text_field :email, type: "email" %>
+  </div>
+
+  <div class="password-field mt-5">
+    <h1>Password</h1>
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="submit-field mt-4 text-right">
+    <%= f.submit "Sign up", class: "btn btn-dark btn-lg" %>
+    <%= link_to t(".sign_in"),
+                sign_in_path,
+                role: "button",
+                class: "btn btn-outline-dark btn-lg",
+                title: "Sign in if you already have an account" %>
+  </div>
+<% end %>

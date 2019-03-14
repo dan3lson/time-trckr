@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Clearance::Controller
+
   rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
 
   private
