@@ -10,6 +10,7 @@
 		<%= f.hidden_field :started_at %>
 		<%= f.hidden_field :stopped_at %>
 	</div>
+	<%= render "tags/form_tags", tags: @tags %>
 	<div class="mt-4 text-right">
 		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
 		<%= link_to "Cancel",

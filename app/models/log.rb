@@ -1,7 +1,7 @@
 class Log < ApplicationRecord
   # Associations
-  has_many :logs_tags, dependent: :destroy
-  has_many :tags,      through: :logs_tags
+  has_many :logs_tags,   dependent: :destroy
+  has_many :tags,        through: :logs_tags
 
   # Validations
   validates :name,       presence: true
@@ -9,7 +9,7 @@ class Log < ApplicationRecord
   validates :stopped_at, presence: true
 
   # Scopes
-  scope :latest, -> { order(started_at: :desc) }
+  scope :latest, -> { order(created_at: :desc) }
   scope :today,  -> { where('started_at > ?', Date.today) }
 
   # == Tags?

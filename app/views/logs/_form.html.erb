@@ -12,6 +12,7 @@
 									   class: "form-control",
 										 placeholder: "e.g. 112" %>
   </div>
+	<%= render "tags/form_tags", tags: @tags %>
 	<div class="mt-4 text-right">
 		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
 		<%= link_to "Cancel",

@@ -10,21 +10,24 @@
 				&nbsp;
 				&nbsp;
 				<%= log.name %>
-				&nbsp;
-				&nbsp;
-				<%= link_to log_path(log),
-										class: "text-light del-log",
-										method: :delete do %>
-					<i class="fas fa-times"></i>
-				<% end %>
+
 				<% if log.tags? %>
 					&nbsp;
 					&nbsp;
-					<span class="badge badge-light">
-						<% log.tags.each do |tag| %>
-							<%= tag.name %>
-						<% end %>
-					</span>
+					<% log.tags.each do |tag| %>
+						<span class="badge badge-dark">
+								<%= tag.name %>
+						</span>
+					<% end %>
+				<% end %>
+
+				&nbsp;
+				&nbsp;
+				<%= link_to log_path(log),
+										class: "text-light delete",
+										title: "Delete this log",
+										method: :delete do %>
+					<i class="fas fa-times"></i>
 				<% end %>
 			</li>
 		<% end %>

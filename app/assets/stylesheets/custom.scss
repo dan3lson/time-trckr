@@ -1,5 +1,6 @@
-.del-log:hover, .text-light:hover {
-	color: red;
+.form-tags {
+	cursor: pointer;
+	font-size: 2rem;
 }
 
 .input-error {
@@ -10,13 +11,13 @@
 	border: 1px solid rgba(0, 0, 0, 0.04)
 }
 
-.new-log-section {
+.new-log-section, .new-tag-section {
 	h1 {
 		font-weight: 200;
 	}
 }
 
-#log_name, #log_minutes {
+#log_name, #log_minutes, #tag_name {
 	background: none;
   border: none;
   border-bottom: 2px solid #000;
@@ -29,6 +30,10 @@
 	&:focus {
 		outline: none;
 	}
+}
+
+.delete.text-light {
+	color: #e8e9ec !important;
 }
 
 .timer-btn {

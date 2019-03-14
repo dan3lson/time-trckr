@@ -1,0 +1,7 @@
+<div class="form-tags mt-5">
+	<% tags.each do |tag| %>
+		<span class="badge badge-secondary" data-id="<%= tag.id %>">
+			<%= tag.name %>
+		</span>
+	<% end %>
+</div>

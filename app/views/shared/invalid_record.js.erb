@@ -1,30 +1,39 @@
 resetFormState();
 $newLogSection = $(".new-log-section");
-$nameInput = $newLogSection.find("#log_name");
-$minutesInput = $newLogSection.find("#log_minutes");
+$logNameInput = $newLogSection.find("#log_name");
+$logMinutesInput = $newLogSection.find("#log_minutes");
+$tagNameInput = $("#tag_name");
 
-if ($nameInput.val() == "") {
+if ($logNameInput.val() == "") {
 	$("h1:eq(1)").addClass("text-danger");
-	$nameInput.addClass("input-error");
+	$logNameInput.addClass("input-error");
 	$nameFeedback = $("<div>", { class: "invalid-feedback d-block" });
 	$nameFeedback.html("Please write what you worked on.");
-	$nameFeedback.insertAfter($nameInput);
+	$nameFeedback.insertAfter($logNameInput);
 }
 
-if ($minutesInput.val() == "") {
+if ($logMinutesInput.val() == "") {
 	$("h1:eq(2)").addClass("text-danger");
-	$minutesInput.addClass("input-error");
+	$logMinutesInput.addClass("input-error");
 	$minutesFeedback = $("<div>", { class: "invalid-feedback d-block" });
 	$minutesFeedback.html("Please write how long it took.");
-	$minutesFeedback.insertAfter($minutesInput);
+	$minutesFeedback.insertAfter($logMinutesInput);
 }
 
-if (parseInt($minutesInput.val()) < 1) {
+if (parseInt($logMinutesInput.val()) < 1) {
 	$("h1:eq(2)").addClass("text-danger");
-	$minutesInput.addClass("input-error");
+	$logMinutesInput.addClass("input-error");
 	$minutesFeedback = $("<div>", { class: "invalid-feedback d-block" });
 	$minutesFeedback.html("Please write a number greater than 0.");
-	$minutesFeedback.insertAfter($minutesInput);
+	$minutesFeedback.insertAfter($logMinutesInput);
+}
+
+if ($tagNameInput.val() == "") {
+	$("h1:eq(1)").addClass("text-danger");
+	$tagNameInput.addClass("input-error");
+	$nameFeedback = $("<div>", { class: "invalid-feedback d-block" });
+	$nameFeedback.html("Please give your new tag a name.");
+	$nameFeedback.insertAfter($tagNameInput);
 }
 
 function resetFormState() {

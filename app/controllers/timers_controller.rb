@@ -1,6 +1,7 @@
 class TimersController < ApplicationController
   def new
     @log = Log.new
+    @tags = Tag.all
   end
 
   def create
@@ -13,6 +14,6 @@ class TimersController < ApplicationController
   private
 
   def logs_params
-    params.require(:log).permit(:name, :started_at, :stopped_at, tags: [])
+    params.require(:log).permit(:name, :started_at, :stopped_at, tag_ids: [])
   end
 end

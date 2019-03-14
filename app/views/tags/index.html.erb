@@ -1,0 +1,22 @@
+<section id="tags">
+	<p class="lead">
+		<%= link_to "Create a tag", new_tag_path, class: "text-dark" %>
+	</p>
+	<ul class="list-group list-group-flush">
+		<% @tags.each do |tag| %>
+			<li class="list-group-item">
+				<span class="badge badge-dark">
+						<%= tag.name %>
+				</span>
+				&nbsp;
+				&nbsp;
+				<%= link_to tag_path(tag),
+										class: "text-light delete",
+										title: "Delete this tag",
+										method: :delete do %>
+					<i class="fas fa-times"></i>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+</section>

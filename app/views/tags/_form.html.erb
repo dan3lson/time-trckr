@@ -1,0 +1,16 @@
+<%= form_with model: tag do |f| %>
+	<div>
+		<h1>Give this new tag a name</h1>
+		<%= f.label :name, class: "sr-only" %>
+		<%= f.text_field :name,
+									   class: "form-control",
+										 placeholder: "e.g. #{%w[important project1].sample}" %>
+	</div>
+	<div class="mt-4 text-right">
+		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
+		<%= link_to "Cancel",
+							  tags_path,
+								role: "button",
+								class: "btn btn-outline-dark btn-lg" %>
+	</div>
+<% end %>
