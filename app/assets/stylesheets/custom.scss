@@ -1,3 +1,18 @@
+// Mobile screen size
+@media (max-width: 40em) {
+  .welcome.display-2 {
+    font-size: 3.5rem;
+  }
+}
+
+.delete.text-light {
+	color: #e8e9ec !important;
+}
+
+.fa-circle, .fa-square.fa-stack-2x {
+	color: $light;
+}
+
 .form-tags {
 	cursor: pointer;
 	font-size: 2rem;
@@ -36,10 +51,6 @@
 	&:focus {
 		outline: none;
 	}
-}
-
-.delete.text-light {
-	color: #e8e9ec !important;
 }
 
 .timer-btn {

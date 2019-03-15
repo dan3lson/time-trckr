@@ -1,12 +1,12 @@
 <section class="mt-4">
 	<div class="row">
 		<div class="col-md-8">
-			<h1 class="display-3">
+			<h1 class="display-2 welcome">
 				TimeTrckr.com
 			</h1>
 			<p class="lead">
-				The best place to track your time. It's free, doesn't have
-				any annoying ads, and doesn't overwhelm you with a bunch of
+				The best place to track your time: it's free, doesn't have
+				annoying ads, and doesn't overwhelm you with a bunch of
 				features you'll never use.
 			</p>
 		</div>
@@ -17,7 +17,7 @@
 		<div class="col-md-4">
 			<span class="fa-stack fa-2x">
 				<i class="fas fa-circle fa-stack-2x"></i>
-				<i class="fas fa-play fa-stack-1x fa-inverse"></i>
+				<i class="fas fa-play fa-stack-1x"></i>
 			</span>
 			<h2>Sit Back &amp; Relax</h2>
 			<p>
@@ -29,7 +29,7 @@
 		<div class="col-md-4">
 			<span class="fa-stack fa-2x">
 				<i class="fas fa-circle fa-stack-2x"></i>
-				<i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+				<i class="fas fa-plus fa-stack-1x"></i>
 			</span>
 			<h2>Forgot to Log?</h2>
 			<p>
@@ -40,7 +40,7 @@
 		<div class="col-md-4">
 			<span class="fa-stack fa-2x">
 				<i class="fas fa-circle fa-stack-2x"></i>
-				<i class="fas fa-tag fa-stack-1x fa-inverse"></i>
+				<i class="fas fa-tag fa-stack-1x"></i>
 			</span>
 			<h2>Go Wild With Tags</h2>
 			<p>
@@ -52,19 +52,27 @@
 	</div>
 </section>
 <section class="mt-4">
-	<div class="sign-up-cta bg-dark p-5">
-		<div class="text-center">
-			<%= link_to sign_up_path,
-									role: "button",
-									class: "text-white",
-									title: "Sign up now" do %>
-				<h1 class="display-4">
-					Get Started Now
-					<i class="fa fa-sign-in-alt"></i>
-				</h1>
-			<% end %>
-		</div>
+	<div class="bg-dark p-5 text-center">
+		<%= link_to sign_up_path,
+								role: "button",
+								class: "text-white",
+								title: "Sign up now" do %>
+			<h1 class="display-4">
+				Get Started Now
+				<i class="fa fa-sign-in-alt"></i>
+			</h1>
+		<% end %>
 	</div>
+	<div class="bg-light p-5 text-center">
+		<%= link_to sign_in_path,
+								class: "text-dark",
+								title: "Sign into TimeTrckr" do %>
+			<h4>
+				Already have an account? Sign in
+				<i class="fa fa-sign-in-alt"></i>
+			</h4>
+    <% end %>
+  </div>
 </section>
 <footer class="mt-4 text-center">
 	<small>

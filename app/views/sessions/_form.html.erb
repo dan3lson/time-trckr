@@ -2,13 +2,13 @@
   <div class="text-field">
     <h1>What's your email?</h1>
     <%= f.label :email, class: "sr-only" %>
-    <%= f.text_field :email, type: "email" %>
+    <%= f.text_field :email, type: "email", placeholder: "e.g. you@gmail.com" %>
   </div>
 
   <div class="password-field mt-5">
     <h1>What's your password?</h1>
     <%= f.label :password, class: "sr-only" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "e.g. mysecretpassword" %>
   </div>
 
   <div class="submit-field mt-4 text-right">
