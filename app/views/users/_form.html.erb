@@ -1,12 +1,12 @@
 <%= form_with model: @user do |f| %>
   <div class="text-field">
-    <h1>Email</h1>
+    <h1>What's your email?</h1>
     <%= f.label :email, class: "sr-only" %>
     <%= f.text_field :email, type: "email" %>
   </div>
 
   <div class="password-field mt-5">
-    <h1>Password</h1>
+    <h1>What's your password?</h1>
     <%= f.label :password, class: "sr-only" %>
     <%= f.password_field :password %>
   </div>

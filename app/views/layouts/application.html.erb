@@ -19,7 +19,9 @@
   <body>
     <div class="container mb-5">
       <%= render "shared/flash_messages" %>
-      <%= render "layouts/navbar" %>
+      <% if signed_in? %>
+        <%= render "layouts/navbar" %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

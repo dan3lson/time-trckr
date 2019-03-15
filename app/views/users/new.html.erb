@@ -1,3 +1,16 @@
 <div id="clearance" class="sign-up">
+  <% if signed_out? %>
+    <div class="mt-5 mb-5">
+      <h4>
+        <%= link_to "TimeTrckr.com",
+                    welcome_path,
+                    class: "text-dark",
+                    title: "TimeTrckr.com homepage" %>
+        |
+        Sign up
+      </h4>
+    </div>
+  <% end %>
+
   <%= render partial: '/users/form' %>
 </div>

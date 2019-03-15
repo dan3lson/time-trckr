@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1 class="display-4">
-				<%= link_to "#{today}", logs_path, class: "text-dark" %></h1>
+				<%= link_to "#{today}", logs_path, class: "text-dark" %>
+			</h1>
 		</div>
 		<div class="col-md-4 text-right text-muted pt-2">
 			<div class="row text-center">
@@ -30,7 +31,6 @@
 				<div class="col-3">
 					<% if signed_in? %>
 						<%= link_to sign_out_path,
-											  role: "button",
 												class: "text-dark",
 												title: "Sign out",
 												method: :delete do %>
@@ -38,7 +38,6 @@
 						<% end %>
 					<% else %>
 						<%= link_to sign_in_path,
-												role: "button",
 												class: "text-dark",
 												title: "Sign in" do %>
 							<i class="fa fa-sign-in-alt fa-3x"></i>
