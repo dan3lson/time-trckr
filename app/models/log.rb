@@ -10,8 +10,13 @@ class Log < ApplicationRecord
   validates :stopped_at,   presence: true
 
   # Scopes
-  scope :latest, -> { order(created_at: :desc) }
-  scope :today,  -> { where('started_at > ?', Date.today) }
+  scope :latest,     -> { order(created_at: :desc) }
+  scope :today,      -> { where('started_at > ?', Date.today) }
+  scope :this_week,  -> { where(
+    'logs.created_at >= ? AND logs.created_at <= ?',
+    Time.current.beginning_of_week,
+    Time.current.end_of_week
+  )}
 
   # == Tags?
   #

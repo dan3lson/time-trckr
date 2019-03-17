@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root   'guests#index'
   get    'welcome', to: 'guests#welcome'
 
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
   end
 
   get    '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
-  delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
+  delete '/sign_out' => 'sessions#destroy', as: 'sign_out'
+  delete '/admin/sign_out' => 'sessions#destroy', as: 'destroy_admin_user_session'
   get    '/sign_up' => 'clearance/users#new', as: 'sign_up'
 
   get    'timer', to: 'timers#new'
