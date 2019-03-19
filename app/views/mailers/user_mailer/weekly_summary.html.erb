@@ -1,0 +1,22 @@
+<div class="content-container">
+  <div class="content">
+    <h1>TimeTrckr.com</h1>
+    <p>Hey <%= @user.email %>,</p>
+    <p>
+      Here's a recap of your time logs from last week:
+    </p>
+		<ul class="logs">
+			<% @user.weekly_summary.each do |day, logs| %>
+				<li>
+          <p><b><%= day.strftime('%A %D') %></b></p>
+          <% logs.each do |log| %>
+  					<%= log.name %>
+  					<span><%= log.created_at.strftime('%a %D') %></span>
+            <br>
+          <% end %>
+				</li>
+			<% end %>
+		</ul>
+    <%= render "mailers/footer" %>
+  </div>
+</div>

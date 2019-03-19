@@ -17,6 +17,11 @@ class Log < ApplicationRecord
     Time.current.beginning_of_week,
     Time.current.end_of_week
   )}
+  scope :last_week,  -> { where(
+    'logs.created_at >= ? AND logs.created_at <= ?',
+    Time.current.last_week,
+    Time.current.last_week.end_of_week
+  )}
 
   # == Tags?
   #

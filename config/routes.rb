@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   resources :timers, only: %i[new create]
   resources :logs,   only: %i[index new create destroy]
   resources :tags,   only: %i[index new create destroy]
+
+  require 'sidekiq/web'
+  require 'sidekiq-scheduler/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
