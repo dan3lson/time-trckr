@@ -3,7 +3,7 @@ class TimersController < ApplicationController
 
   def new
     @log = Log.new
-    @tags = Tag.all
+    @tags = current_user.tags
   end
 
   def create

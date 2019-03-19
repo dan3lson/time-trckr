@@ -22,4 +22,14 @@ class User < ApplicationRecord
   def hours_for_today
     logs.today.hours_for_today
   end
+
+  # == Weekly Summary
+  #
+  # The number of hours tracked for today.
+  #
+  # @return Hash
+  #
+  def weekly_summary
+    logs.last_week.latest.group_by { |log| log.started_at.beginning_of_day }
+  end
 end

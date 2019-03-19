@@ -1,0 +1,10 @@
+---
+:concurrency: 1
+:queues:
+  - default
+  - mailers
+:logfile: ./log/sidekiq.log
+:schedule:
+  WeeklySummary:
+    cron: '30 8 * * Mon'   # Run every Monday at 8:30am
+    description: "Show users what they logged last week"
