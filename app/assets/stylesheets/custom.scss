@@ -5,11 +5,6 @@
   }
 }
 
-.log-index-action.text-light {
-	color: #e8e9ec !important;
-  text-decoration: none;
-}
-
 .fa-circle, .fa-square.fa-stack-2x {
 	color: $light;
 }
@@ -19,12 +14,23 @@
 	font-size: 2rem;
 }
 
+.index.text-light {
+	color: #e8e9ec !important;
+  text-decoration: none;
+}
+
 .input-error {
 	border-bottom: 2px solid #DC3545 !important;
 }
 
 .list-group-item {
 	border: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+#logs, #tags {
+  ul {
+    font-size: large;
+  }
 }
 
 .new-log-section, .new-tag-section, #clearance {

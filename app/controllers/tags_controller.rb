@@ -10,8 +10,13 @@ class TagsController < ApplicationController
   end
 
   def create
-    current_user.tags.create!(tags_params)
-    flash[:success] = 'Tag successfully created'
+    raise ActiveRecord::RecordInvalid if tags_params[:name].blank?
+
+    @new_tags = Tag.initializer(current_user, tags_params[:name])
+    Tag.transaction do
+      @new_tags.each(&:save!)
+    end
+    flash[:success] = 'Tags successfully created'
     redirect_to tags_path
   end
 

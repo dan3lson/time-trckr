@@ -6,4 +6,17 @@ class Tag < ApplicationRecord
 
   # Validations
   validates :name, presence: true
+
+  # == Initializer
+  #
+  # Build new tag objects from
+  # the given comma-separated
+  # string
+  #
+  def self.initializer(user, names)
+    names.split(',')
+         .reject(&:blank?)
+         .uniq
+         .map { |name| user.tags.new(name: name) }
+  end
 end

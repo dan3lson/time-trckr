@@ -5,6 +5,9 @@
 		<%= f.text_field :name,
 									   class: "form-control",
 										 placeholder: "e.g. #{%w[important project1].sample}" %>
+		<small class="form-text text-muted">
+			Tip: You can create multiple tags with commas like this: tag1, tag2, tag3
+		</small>
 	</div>
 	<div class="mt-4 text-right">
 		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
