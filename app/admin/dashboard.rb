@@ -17,7 +17,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Logs This Week" do
           ul do
             Log.this_week.latest.map do |log|
-              day = log.created_at.strftime('%A')
+              day = log.started_at.strftime('%A')
               email = log&.user&.email
               li "#{day}: #{log.name} // #{log.hours} hrs // #{email}"
             end
