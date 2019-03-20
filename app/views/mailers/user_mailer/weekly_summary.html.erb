@@ -11,7 +11,7 @@
           <p><b><%= day.strftime('%A %D') %></b></p>
           <% logs.each do |log| %>
   					<%= log.name %>
-  					<span><%= log.created_at.strftime('%a %D') %></span>
+  					<span><%= log.hours %> hrs</span>
             <br>
           <% end %>
 				</li>

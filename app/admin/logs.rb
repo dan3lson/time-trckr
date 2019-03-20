@@ -9,7 +9,9 @@ ActiveAdmin.register Log do
 	  column :name
 	  column :started_at
 	  column :stopped_at
-	  column :created_at
+	  column :hours do |resource|
+			resource.hours
+		end
 	  actions
 	end
 end

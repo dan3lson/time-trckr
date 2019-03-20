@@ -23,8 +23,19 @@
 
 				&nbsp;
 				&nbsp;
+
+				<%= link_to new_log_replay_path(log, started_at: Time.current),
+										class: "text-light log-index-action",
+										title: "Replay this log",
+										remote: true do %>
+					<i class="fas fa-play"></i>
+				<% end %>
+
+				&nbsp;
+				&nbsp;
+
 				<%= link_to log_path(log),
-										class: "text-light delete",
+										class: "text-light log-index-action",
 										title: "Delete this log",
 										method: :delete do %>
 					<i class="fas fa-times"></i>

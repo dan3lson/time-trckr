@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   get    '/sign_up' => 'clearance/users#new', as: 'sign_up'
 
   get    'timer', to: 'timers#new'
-  resources :timers, only: %i[new create]
-  resources :logs,   only: %i[index new create destroy]
-  resources :tags,   only: %i[index new create destroy]
+  resources :timers,    only: %i[new create]
+  resources :logs,      only: %i[index new create destroy] do
+    resources :replays, only: %i[new create]
+  end
+  resources :tags, only: %i[index new create destroy]
 
   require 'sidekiq/web'
   require 'sidekiq-scheduler/web'

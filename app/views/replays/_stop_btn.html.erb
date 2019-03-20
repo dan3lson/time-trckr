@@ -1,0 +1,9 @@
+<section id="timerControl">
+	<div>
+		<%= link_to log_replays_path(log, started_at: started_at),
+								method: :post,
+								class: 'text-dark' do %>
+			<i class="fa fa-stop timer-btn"></i>
+		<% end %>
+	</div>
+</section>

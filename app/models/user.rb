@@ -30,6 +30,6 @@ class User < ApplicationRecord
   # @return Hash
   #
   def weekly_summary
-    logs.last_week.latest.group_by { |log| log.started_at.beginning_of_day }
+    logs.last_week.earliest.group_by { |log| log.started_at.beginning_of_day }
   end
 end
