@@ -47,12 +47,23 @@ class User < ApplicationRecord
 
   # == Faux Name
   #
-  # Name the user by its email
-  # address
+  # Name the user from its email
+  # address.
   #
   # @return String
   #
   def faux_name
     email.split('@').first
+  end
+
+  # == Hours (logs)
+  #
+  # Add all the hours for the
+  # given logs.
+  #
+  # @return Float
+  #
+  def hours(logs)
+    logs.map(&:hours).sum.round(2)
   end
 end

@@ -38,7 +38,8 @@ class Log < ApplicationRecord
 
   # == Hours
   #
-  # The number of hours tracked in this log.
+  # The number of hours tracked for this
+  # log.
   #
   # @return Float
   #

@@ -5,7 +5,14 @@
 			<%= format_date(Time.current.end_of_week) %>
 	</p>
 	<% current_user.logs_this_week.each do |day, logs| %>
-		<p><b><%= format_date(day) %></b></p>
+		<p>
+			<b>
+				<%= format_date(day) %>
+				<span class="text-muted">
+					(<%= current_user.hours(logs) %> hrs)
+				</span>
+			</b>
+		</p>
 		<%= render "logs/logs", logs: logs %>
 		<br>
 	<% end %>
