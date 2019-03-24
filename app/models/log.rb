@@ -12,7 +12,9 @@ class Log < ApplicationRecord
   # Scopes
   scope :latest,     -> { order(created_at: :desc) }
   scope :earliest,   -> { order(created_at: :asc) }
-  scope :today,      -> { where('started_at > ?', Date.today) }
+  scope :today,      -> {
+    where('started_at > ?', Time.current.beginning_of_day)
+  }
   scope :this_week,  -> { where(
     'logs.created_at >= ? AND logs.created_at <= ?',
     Time.current.beginning_of_week,

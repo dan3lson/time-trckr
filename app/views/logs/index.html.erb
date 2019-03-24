@@ -1,46 +1,6 @@
 <section id="logs">
 	<p class="lead">
-		All in a day's work:
-		<%= current_user.hours_for_today %>h
+		Hours logged today: <%= current_user.hours_for_today %>
 	</p>
-	<ul class="list-group list-group-flush">
-		<% @logs.each do |log| %>
-			<li class="list-group-item">
-				<b><%= log.hours %>h</b>
-				&nbsp;
-				&nbsp;
-				<%= log.name %>
-
-				<% if log.tags? %>
-					&nbsp;
-					&nbsp;
-					<% log.tags.each do |tag| %>
-						<span class="badge badge-dark">
-								<%= tag.name %>
-						</span>
-					<% end %>
-				<% end %>
-
-				&nbsp;
-				&nbsp;
-
-				<%= link_to new_log_replay_path(log, started_at: Time.current),
-										class: "text-light index",
-										title: "Replay this log",
-										remote: true do %>
-					<i class="fas fa-play"></i>
-				<% end %>
-
-				&nbsp;
-				&nbsp;
-
-				<%= link_to log_path(log),
-										class: "text-light index",
-										title: "Delete this log",
-										method: :delete do %>
-					<i class="fas fa-times"></i>
-				<% end %>
-			</li>
-		<% end %>
-	</ul>
+	<%= render "logs/logs", logs: @logs %>
 </section>

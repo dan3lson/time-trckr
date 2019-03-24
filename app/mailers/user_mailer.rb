@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
   # week. This is sent every Monday at
   # 8:30am.
   #
-  def weekly_summary(user)
+  def logs_last_week(user)
     @user = user
     mail(to: @user.email, subject: 'TimeTrckr.com: Your Logs from Last Week')
   end

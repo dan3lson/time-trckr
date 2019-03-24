@@ -6,7 +6,7 @@
       Here's a recap of your time logs from last week:
     </p>
 		<ul class="logs">
-			<% @user.weekly_summary.each do |day, logs| %>
+			<% @user.logs_last_week.each do |day, logs| %>
 				<li>
           <p><b><%= day.strftime('%A %D') %></b></p>
           <% logs.each do |log| %>

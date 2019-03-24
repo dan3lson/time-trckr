@@ -23,13 +23,36 @@ class User < ApplicationRecord
     logs.today.hours_for_today
   end
 
-  # == Weekly Summary
+  # == Logs Last Week
   #
-  # The number of hours tracked for today.
+  # Group hours by day from last
+  # week. Used in LogsLastWeekJob.
   #
   # @return Hash
   #
-  def weekly_summary
+  def logs_last_week
     logs.last_week.earliest.group_by { |log| log.started_at.beginning_of_day }
+  end
+
+  # == Logs This Week
+  #
+  # Group hours by day from this
+  # week. Used in Histories#index.
+  #
+  # @return Hash
+  #
+  def logs_this_week
+    logs.this_week.latest.group_by { |log| log.started_at.beginning_of_day }
+  end
+
+  # == Faux Name
+  #
+  # Name the user by its email
+  # address
+  #
+  # @return String
+  #
+  def faux_name
+    email.split('@').first
   end
 end

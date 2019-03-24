@@ -1,0 +1,12 @@
+<section id="logs">
+	<p class="lead mb-4">
+		Logs from
+			<%= format_date(Time.current.beginning_of_week) %> to
+			<%= format_date(Time.current.end_of_week) %>
+	</p>
+	<% current_user.logs_this_week.each do |day, logs| %>
+		<p><b><%= format_date(day) %></b></p>
+		<%= render "logs/logs", logs: logs %>
+		<br>
+	<% end %>
+</section>

@@ -4,7 +4,7 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.welcome(User.first)
   end
 
-  def weekly_summary
-    UserMailer.weekly_summary(User.first)
+  def logs_last_week
+    UserMailer.logs_last_week(User.first)
   end
 end
