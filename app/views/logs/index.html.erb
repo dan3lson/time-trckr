@@ -1,6 +1,10 @@
 <section id="logs">
-	<p class="lead">
-		Hours logged today: <%= current_user.hours_for_today %>
-	</p>
-	<%= render "logs/logs", logs: @logs %>
+	<% if current_user.logs_today? %>
+		<p class="lead">
+			Hours logged today: <%= current_user.hours_for_today %>
+		</p>
+		<%= render "logs/logs", logs: @logs %>
+	<% else %>
+		<%= render "logs/blank_slate", text: "today" %>
+	<% end %>
 </section>

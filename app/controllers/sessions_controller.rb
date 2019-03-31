@@ -1,6 +1,6 @@
 class SessionsController < Clearance::SessionsController
   def destroy
-    flash[:success] = 'Successfully signed out; stay productive, my friends.'
+    flash[:success] = 'Successfully signed out'
     super
   end
 end

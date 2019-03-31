@@ -1,5 +1,17 @@
+// Variables
+$h1_font_weight: 200;
+
 // Mobile screen size
-@media (max-width: 40em) {
+@media (max-width: 48em) {
+  .blank-state-message {
+    .col-md-6:first-child {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      border-right:  none !important;
+      margin-bottom: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
   #welcome-header {
     h1 {
       font-size: 3.5rem;
@@ -8,6 +20,20 @@
     i {
       font-size: 2.2rem !important;
     }
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.blank-state-message {
+  h1 {
+    font-weight: $h1_font_weight;
+  }
+
+  .col-md-6:first-child {
+    border-right:  1px solid rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -20,9 +46,18 @@
 	font-size: 2rem;
 }
 
+.icon-shadow {
+  text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee,
+               2px 1px 1px #ccc, 1px 2px 1px #eee,
+               3px 2px 1px #ccc, 2px 3px 1px #eee,
+               4px 3px 1px #ccc, 3px 4px 1px #eee,
+               5px 4px 1px #ccc, 4px 5px 1px #eee,
+               6px 5px 1px #ccc, 5px 6px 1px #eee,
+               7px 6px 1px #ccc;
+}
+
 .index.text-light {
 	color: #e8e9ec !important;
-  text-decoration: none;
 }
 
 .input-error {
@@ -30,7 +65,7 @@
 }
 
 .list-group-item {
-	border: 1px solid rgba(0, 0, 0, 0.04)
+	border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 #logs, #tags {
@@ -39,9 +74,9 @@
   }
 }
 
-.new-log-section, .new-tag-section, #clearance {
+.new-log-section, .new-tag-section, #clearance, {
 	h1 {
-		font-weight: 200;
+		font-weight: $h1_font_weight;
 	}
 }
 
@@ -89,7 +124,6 @@
 }
 
 #timerControl {
-  position: relative;
 	height: 400px;
 
 	div {
@@ -101,14 +135,9 @@
 	}
 
 	.fa-play, .fa-stop {
+    @extend .icon-shadow;
+
 		animation: shadow-pulse 1s infinite;
-		text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee,
-					    	 2px 1px 1px #ccc, 1px 2px 1px #eee,
-					    	 3px 2px 1px #ccc, 2px 3px 1px #eee,
-					    	 4px 3px 1px #ccc, 3px 4px 1px #eee,
-					    	 5px 4px 1px #ccc, 4px 5px 1px #eee,
-					    	 6px 5px 1px #ccc, 5px 6px 1px #eee,
-					    	 7px 6px 1px #ccc;
 	}
 }
 

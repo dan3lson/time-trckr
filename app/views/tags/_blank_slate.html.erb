@@ -1,0 +1,20 @@
+<div class="blank-state-message p-3 bg-light">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2 text-center">
+			<h1>
+				You don't have any tags yet:
+			</h1>
+			<div class="mt-5">
+				<h1>
+					<%= link_to new_tag_path,
+											class: "text-dark",
+											title: "Manually create a log" do %>
+						<i class="fa fa-plus fa-2x icon-shadow"></i>
+						<br>
+						Create your first one
+					<% end %>
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>

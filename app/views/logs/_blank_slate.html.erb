@@ -1,0 +1,33 @@
+<div class="blank-state-message p-3 bg-light">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2 text-center">
+			<h1>
+				You don't have any logs for <%= text %>:
+			</h1>
+			<div class="row mt-5">
+				<div class="col-md-6">
+					<h1>
+						<%= link_to timer_path,
+												class: "text-dark",
+												title: "Go to the Timer" do %>
+							<i class="fa fa-play fa-2x icon-shadow"></i>
+							<br>
+							Automatically track time now
+						<% end %>
+					</h1>
+				</div>
+				<div class="col-md-6">
+					<h1>
+						<%= link_to new_log_path,
+												class: "text-dark",
+												title: "Manually create a log" do %>
+							<i class="fa fa-plus fa-2x icon-shadow"></i>
+							<br>
+							Log what you already did
+						<% end %>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

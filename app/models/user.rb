@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # Authentication
   include Clearance::User
 
   # Associations
@@ -37,12 +38,36 @@ class User < ApplicationRecord
   # == Logs This Week
   #
   # Group hours by day from this
-  # week. Used in Histories#index.
+  # week. Used in histories#index.
   #
   # @return Hash
   #
   def logs_this_week
     logs.this_week.latest.group_by { |log| log.started_at.beginning_of_day }
+  end
+
+  # == Logs Today?
+  #
+  # Check if user has logged
+  # anything today. Used in
+  # logs#index.
+  #
+  # @return Boolean
+  #
+  def logs_today?
+    hours_for_today.positive?
+  end
+
+  # == Logs This Week?
+  #
+  # Check if user has logged
+  # anything this week. Used in
+  # histories#index.
+  #
+  # @return Boolean
+  #
+  def logs_this_week?
+    logs_this_week.any?
   end
 
   # == Faux Name
@@ -65,5 +90,16 @@ class User < ApplicationRecord
   #
   def hours(logs)
     logs.map(&:hours).sum.round(2)
+  end
+
+  # == Tags?
+  #
+  # See if user has added any
+  # tags yet
+  #
+  # @return Boolean
+  #
+  def tags?
+    tags.any?
   end
 end
