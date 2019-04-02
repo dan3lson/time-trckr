@@ -8,7 +8,12 @@
 		<ul class="logs">
 			<% @user.logs_last_week.each do |day, logs| %>
 				<li>
-          <p><b><%= day.strftime('%A %D') %></b></p>
+          <p>
+            <b>
+              <%= day.strftime('%A %D') %>:
+              <%= logs.map(&:hours).sum.round(2) %> hrs
+            </b>
+          </p>
           <% logs.each do |log| %>
   					<%= log.name %>
   					<span><%= log.hours %> hrs</span>
