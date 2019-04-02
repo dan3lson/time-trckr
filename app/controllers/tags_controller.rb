@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :require_login
 
   def index
-    @tags = current_user.tags
+    @tags = current_user.tags.a_to_z
   end
 
   def new

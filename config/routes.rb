@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   #
   get    'timer', to: 'timers#new'
   resources :timers,    only: %i[new create]
-  resources :logs,      only: %i[index new create destroy] do
+  resources :logs,      only: %i[index new create edit update destroy] do
     resources :replays, only: %i[new create]
   end
   resources :tags, only: %i[index new create destroy]

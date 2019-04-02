@@ -1,7 +1,7 @@
 resetFormState();
-$newLogSection = $(".new-log-section");
-$logNameInput = $newLogSection.find("#log_name");
-$logMinutesInput = $newLogSection.find("#log_minutes");
+$logSection = $(".logs-section");
+$logNameInput = $logSection.find("#log_name");
+$logMinutesInput = $logSection.find("#log_minutes");
 $tagNameInput = $("#tag_name");
 
 if ($logNameInput.val() == "") {
@@ -39,5 +39,5 @@ if ($tagNameInput.val() == "") {
 function resetFormState() {
 	$(".invalid-feedback").remove();
 	$(".form-control").removeClass("input-error");
-	$(".new-log-section").find("h1").removeClass("text-danger");
+	$(".logs-section").find("h1").removeClass("text-danger");
 }

@@ -7,6 +7,9 @@ class Tag < ApplicationRecord
   # Validations
   validates :name, presence: true
 
+  # Scopes
+  scope :a_to_z, -> { order(:name) }
+
   # == Initializer
   #
   # Build new tag objects from

@@ -9,7 +9,7 @@
 			<% if log.tags? %>
 				&nbsp;
 				&nbsp;
-				<% log.tags.each do |tag| %>
+				<% log.tags.a_to_z.each do |tag| %>
 					<span class="badge badge-dark">
 							<%= tag.name %>
 					</span>
@@ -24,6 +24,15 @@
 									title: "Replay this log",
 									remote: true do %>
 				<i class="fas fa-play"></i>
+			<% end %>
+
+			&nbsp;
+			&nbsp;
+
+			<%= link_to edit_log_path(log),
+									class: "text-light index",
+									title: "Edit this log" do %>
+				<i class="fas fa-edit"></i>
 			<% end %>
 
 			&nbsp;

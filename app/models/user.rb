@@ -94,8 +94,7 @@ class User < ApplicationRecord
 
   # == Tags?
   #
-  # See if user has added any
-  # tags yet
+  # See if user has any tags.
   #
   # @return Boolean
   #

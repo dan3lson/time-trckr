@@ -1,15 +1,37 @@
 $(document).on('turbolinks:load', function() {
-	$(".form-tags span").click(function() {
+	preFillTagsOnEditLogPage();
+
+	$("#form-tags span").click(function() {
 		$tag = $(this);
 		tagId = $tag.data("id");
 		$tag.toggleClass("badge-dark");
-
-		if (tagNotClicked(tagId)) {
-			$(".form-tags").append(createHiddenInput(tagId));
-		} else {
-			removeHiddenInput(tagId);
-		}
+		addOrRemoveTagFromForm(tagId);
 	});
+
+	function preFillTagsOnEditLogPage() {
+		$(".pre-fill").each(function(index, value) {
+			$tag = $(this);
+			tagId = $tag.data("id");
+			$tag.addClass("badge-dark");
+			addTagToForm(tagId);
+		});
+	}
+
+	function addOrRemoveTagFromForm(tagId) {
+		if (tagNotClicked(tagId)) {
+			addTagToForm(tagId);
+		} else {
+			removeTagFromForm(tagId);
+		}
+	}
+
+	function addTagToForm(tagId) {
+		$("#form-tags").append(createHiddenInput(tagId));
+	}
+
+	function removeTagFromForm(tagId) {
+		removeHiddenInput(tagId);
+	}
 
 	function createHiddenInput(tagId) {
 		$i = $("<input/>", { type: "hidden", name: "log[tag_ids][]", value: tagId })

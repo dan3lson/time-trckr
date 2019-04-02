@@ -10,11 +10,12 @@
 		<h1>How many minutes did it take?</h1>
 		<%= f.text_field :minutes,
 									   class: "form-control",
-										 placeholder: "e.g. 112" %>
+										 placeholder: "e.g. 112",
+										 value: "#{log.minutes if editing_log?}" %>
   </div>
-	<%= render "tags/form_tags", tags: @tags %>
+	<%= render "tags/form_tags", log: log, tags: tags %>
 	<div class="mt-4 text-right">
-		<%= f.submit "Done", class: "btn btn-dark btn-lg" %>
+		<%= f.submit "#{btn_text}", class: "btn btn-dark btn-lg" %>
 		<%= link_to "Cancel",
 							  timer_path,
 								role: "button",

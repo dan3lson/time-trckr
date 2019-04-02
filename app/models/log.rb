@@ -36,6 +36,17 @@ class Log < ApplicationRecord
     tags.any?
   end
 
+  # == Tag?(tag)
+  #
+  # Checks if this log has a
+  # specific tag.
+  #
+  # @return Boolean
+  #
+  def tag?(tag)
+    tags.include?(tag)
+  end
+
   # == Hours
   #
   # The number of hours tracked for this
@@ -45,6 +56,17 @@ class Log < ApplicationRecord
   #
   def hours
     ((stopped_at - started_at) / 1.hour).round(2)
+  end
+
+  # == Minutes
+  #
+  # The number of minutes tracked for this
+  # log.
+  #
+  # @return Float
+  #
+  def minutes
+    (hours * 60).round(0)
   end
 
   # == Hours for Today

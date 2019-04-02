@@ -1,6 +1,7 @@
-<div class="form-tags mt-5">
+<div class="mt-5" id="form-tags">
 	<% tags.each do |tag| %>
-		<span class="badge badge-secondary" data-id="<%= tag.id %>">
+		<span class="badge badge-secondary <%= 'pre-fill' if filled?(log, tag) %>"
+		      data-id="<%= tag.id %>">
 			<%= tag.name %>
 		</span>
 	<% end %>

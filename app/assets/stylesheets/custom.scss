@@ -41,7 +41,7 @@ a:hover {
 	color: $light;
 }
 
-.form-tags {
+#form-tags {
 	cursor: pointer;
 	font-size: 2rem;
 }
@@ -74,7 +74,7 @@ a:hover {
   }
 }
 
-.new-log-section, .new-tag-section, #clearance, {
+.logs-section, .new-tag-section, #clearance, {
 	h1 {
 		font-weight: $h1_font_weight;
 	}
