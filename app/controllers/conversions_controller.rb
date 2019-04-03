@@ -3,7 +3,7 @@ class ConversionsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
-    @unit = params[:unit] == 'hours' ? 'minutes' : 'hours'
+    @unit = Log.convert(params[:unit])
     @letter = @unit[0]
     respond_to do |format|
       format.js

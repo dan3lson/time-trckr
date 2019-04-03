@@ -1,7 +1,7 @@
 <section id="logs">
 	<% if current_user.logs_today? %>
 		<p class="lead">
-			Hours logged today: <%= current_user.hours_for_today %>
+			<%= current_user.hours_for_today %> hours logged today
 		</p>
 		<%= render "logs/logs", logs: @logs %>
 	<% else %>

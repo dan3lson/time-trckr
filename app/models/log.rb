@@ -76,6 +76,51 @@ class Log < ApplicationRecord
   # @return Float
   #
   def self.hours_for_today
-    today.select(:started_at, :stopped_at).map(&:hours).sum.round(2)
+    today.sum_hours
+  end
+
+  # == Sum Hours
+  #
+  # The added hours for the chained logs.
+  #
+  # @return Float
+  #
+  def self.sum_hours
+    select(:started_at, :stopped_at).map(&:hours).sum.round(2)
+  end
+
+  # == Convert
+  #
+  # Determine the next unit
+  # to display:
+  # - If hours currently show, switch to
+  #   minutes
+  # - If minutes currently show, switch
+  #   to total hours
+  # - If total hours currently show, go
+  #   back to hours.
+  #
+  # @return String
+  #
+  def self.convert(unit)
+    if unit == 'hours'
+      'minutes'
+    elsif unit == 'minutes'
+      'total_hours'
+    elsif unit == 'total_hours'
+      'hours'
+    end
+  end
+
+  # == Total Hours
+  #
+  # Find logs with the same name, i.e.
+  # things a user did multiple times,
+  # and add all of their hours worked.
+  #
+  # @return Float
+  #
+  def total_hours(user)
+    user.logs.where(name: name).sum_hours
   end
 end
