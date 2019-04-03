@@ -1,0 +1,25 @@
+<head>
+	<%= render "shared/google_analytics" %>
+	<meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="author"    content="Danelson Rosa">
+	<meta name="webmaster" content="Danelson Rosa">
+	<meta name="copyright" content="Danelson Rosa">
+	<meta name="description" content="Manage your time with our easy-to-use (no, really!), free software.">
+	<meta name="application-name" content="TimeTrckr.com">
+	<meta name="keywords" content="track your time, easy way to track time, organize your time, simple time tracking software, free time tracker, online timer, timesheets">
+
+	<title>
+		TimeTrckr.com &mdash; free time tracking software to manage your time
+	</title>
+
+	<link rel="canonical" href="https://timetrckr.com">
+
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.3.1/css/all.css' %>
+	<%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
