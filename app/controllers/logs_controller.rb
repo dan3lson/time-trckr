@@ -23,8 +23,11 @@ class LogsController < ApplicationController
   end
 
   def update
-    log = current_user.logs.find(params[:id])
-    log.update!(log_params)
+    @log = current_user.logs.find(params[:id])
+    update_log_params = log_params.dup
+    update_log_params[:started_at] = @log.started_at
+    update_log_params[:stopped_at] = @log.started_at + minutes.minutes
+    @log.update!(update_log_params)
     flash[:success] = 'Log successfully updated'
     redirect_to logs_path
   end
