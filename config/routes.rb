@@ -39,8 +39,9 @@ Rails.application.routes.draw do
   resources :logs,      only: %i[index new create edit update destroy] do
     resources :replays, only: %i[new create]
   end
-  resources :tags, only: %i[index new create destroy]
-  resources :histories, only: %i[index]
+  resources :tags,        only: %i[index new create destroy]
+  resources :histories,   only: :index
+  resources :conversions, only: :show
 
   # == Sidekiq
   #

@@ -1,7 +1,12 @@
 <ul class="list-group list-group-flush">
 	<% logs.each do |log| %>
 		<li class="list-group-item">
-			<b><%= log.hours %>h</b>
+			<b data-log-id="<%= log.id %>">
+				<%= link_to "#{log.hours}h",
+										conversion_path(log, unit: 'hours'),
+										class: "text-dark",
+										remote: true %>
+			</b>
 			&nbsp;
 			&nbsp;
 			<%= log.name %>

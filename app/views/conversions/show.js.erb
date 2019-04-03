@@ -1,0 +1,8 @@
+var partial = "<%= j render(partial: 'conversions/to_unit', locals: { log: @log, unit: @unit, letter: @letter }) %>";
+var $linkContainer = findUnitLink();
+
+$linkContainer.html(partial);
+
+function findUnitLink() {
+	return $("[data-log-id='" + "<%= @log.id %>" + "']");
+}
