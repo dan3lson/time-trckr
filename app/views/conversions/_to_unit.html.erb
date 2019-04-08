@@ -1,13 +1,19 @@
-<% if unit == "total_hours" %>
+<% if unit == "hours_for_today" %>
+	<%= link_to "#{log.hours_for_today(current_user)} hours for today",
+							conversion_path(log, unit: unit),
+							class: "text-dark",
+							title: "Click to see this log's minutes, hours, or total hours",
+							remote: true %>
+<% elsif unit == "total_hours" %>
 	<%= link_to "#{log.total_hours(current_user)} total hours",
 							conversion_path(log, unit: unit),
 							class: "text-dark",
-							title: "Click to see the minutes, hours, or total hours this log",
+							title: "Click to see this log's minutes, hours, or total hours",
 							remote: true %>
 <% else %>
 	<%= link_to "#{log.send(unit)}#{letter}",
 							conversion_path(log, unit: unit),
 							class: "text-dark",
-							title: "Click to see the minutes, hours, or total hours this log",
+							title: "Click to see this log's minutes, hours, or total hours",
 							remote: true %>
 <% end %>

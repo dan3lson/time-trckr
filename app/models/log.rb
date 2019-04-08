@@ -36,7 +36,7 @@ class Log < ApplicationRecord
     tags.any?
   end
 
-  # == Tag?(tag)
+  # == Tag? (tag)
   #
   # Checks if this log has a
   # specific tag.
@@ -89,7 +89,7 @@ class Log < ApplicationRecord
     select(:started_at, :stopped_at).map(&:hours).sum.round(2)
   end
 
-  # == Convert
+  # == Convert (unit)
   #
   # Determine the next unit
   # to display:
@@ -106,6 +106,8 @@ class Log < ApplicationRecord
     if unit == 'hours'
       'minutes'
     elsif unit == 'minutes'
+      'hours_for_today'
+    elsif unit == 'hours_for_today'
       'total_hours'
     elsif unit == 'total_hours'
       'hours'
@@ -122,5 +124,18 @@ class Log < ApplicationRecord
   #
   def total_hours(user)
     user.logs.where(name: name).sum_hours
+  end
+
+  # == Hours For Today (user)
+  #
+  # Find logs with the same name, i.e.
+  # things a user did multiple times,
+  # and add all of their hours worked
+  # for today.
+  #
+  # @return Float
+  #
+  def hours_for_today(user)
+    user.logs.today.where(name: name).sum_hours
   end
 end
