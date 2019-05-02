@@ -1,7 +1,7 @@
 module LogsHelper
 	# == Editing Log?
 	#
-	# Checks if user is on the
+	# See if user is on the
 	# logs#edit page.
 	#
 	# @return Boolean
@@ -12,7 +12,7 @@ module LogsHelper
 
 	# == Filled? (log, tag)
 	#
-	# Checks if a log has the
+	# See if a log has the
 	# given tag, which will be
 	# pre-filled in on the
 	# logs#edit page.

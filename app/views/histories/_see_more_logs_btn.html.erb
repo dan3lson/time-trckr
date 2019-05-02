@@ -1,0 +1,5 @@
+<%= link_to "see logs from #{pluralize(num_weeks_ago, 'week')} ago",
+						histories_path(num_weeks_ago: num_weeks_ago),
+						class: "btn btn-outline-dark",
+						title: "See more logs",
+						remote: true %>

@@ -1,22 +1,11 @@
 <section id="logs">
 	<% if current_user.logs_this_week? %>
-		<p class="lead mb-4">
-			Logs from
-				<%= format_date(Time.current.beginning_of_week) %> to
-				<%= format_date(Time.current.end_of_week) %>
-		</p>
-		<% current_user.logs_this_week.each do |day, logs| %>
-			<p>
-				<b>
-					<%= format_date(day) %>
-					<span class="text-muted">
-						(<%= current_user.hours(logs) %> hrs)
-					</span>
-				</b>
-			</p>
-			<%= render "logs/logs", logs: logs %>
-			<br>
-		<% end %>
+		<div class="history-logs">
+			<%= render "histories/logs", logs: @logs, num_weeks_ago: @num_weeks_ago %>
+		</div>
+		<div class="text-center mt-5 see-more-logs">
+			<%= render "histories/see_more_logs_btn", num_weeks_ago: 1 %>
+		</div>
 	<% else %>
 		<%= render "logs/blank_slate", text: "this week" %>
 	<% end %>

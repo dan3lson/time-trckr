@@ -15,20 +15,17 @@ class Log < ApplicationRecord
   scope :today,      -> {
     where('started_at > ?', Time.current.beginning_of_day)
   }
-  scope :this_week,  -> { where(
+  scope :this_week,  -> { history }
+  scope :last_week,  -> { history(num_weeks_ago: 1) }
+  scope :history,  ->(num_weeks_ago: 0) { where(
     'logs.created_at >= ? AND logs.created_at <= ?',
-    Time.current.beginning_of_week,
-    Time.current.end_of_week
-  )}
-  scope :last_week,  -> { where(
-    'logs.created_at >= ? AND logs.created_at <= ?',
-    Time.current.last_week,
-    Time.current.last_week.end_of_week
+    num_weeks_ago.weeks.ago.beginning_of_week,
+    num_weeks_ago.weeks.ago.end_of_week
   )}
 
   # == Tags?
   #
-  # Checks if this log has any tags.
+  # See if this log has any tags.
   #
   # @return Boolean
   #
@@ -38,7 +35,7 @@ class Log < ApplicationRecord
 
   # == Tag? (tag)
   #
-  # Checks if this log has a
+  # See if this log has a
   # specific tag.
   #
   # @return Boolean
@@ -137,5 +134,16 @@ class Log < ApplicationRecord
   #
   def hours_for_today(user)
     user.logs.today.where(name: name).sum_hours
+  end
+
+  # == Empty? (logs)
+  #
+  # See if the given collection
+  # has any logs.
+  #
+  # @return Boolean
+  #
+  def self.empty?(logs)
+    logs.empty?
   end
 end

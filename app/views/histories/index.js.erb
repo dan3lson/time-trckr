@@ -1,0 +1,4 @@
+var btn_partial = "<%= j render(partial: 'histories/see_more_logs_btn', locals: { num_weeks_ago: @num_weeks_ago + 1 }) %>";
+var logs_partial = "<%= j render(partial: 'histories/logs', locals: { logs: @logs, num_weeks_ago: @num_weeks_ago }) %>";
+$(".history-logs").append(logs_partial);
+$(".see-more-logs").html(btn_partial);

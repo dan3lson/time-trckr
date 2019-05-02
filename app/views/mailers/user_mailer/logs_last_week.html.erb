@@ -2,26 +2,38 @@
   <div class="content">
     <h1>TimeTrckr.com</h1>
     <p>Hey <%= @user.faux_name %>,</p>
-    <p>
-      Here's a recap of your time logs from last week:
-    </p>
-		<ul class="logs">
-			<% @user.logs_last_week.each do |day, logs| %>
-				<li>
-          <p>
-            <b>
-              <%= day.strftime('%A %D') %>:
-              <%= logs.map(&:hours).sum.round(2) %> hrs
-            </b>
-          </p>
-          <% logs.each do |log| %>
-  					<%= log.name %>
-  					<span><%= log.hours %> hrs</span>
-            <br>
-          <% end %>
-				</li>
-			<% end %>
-		</ul>
+    <% if Log.empty?(@user.logs_last_week) %>
+      <p>
+        We're here to give your TimeTrckr recap for last week, but it looks
+        like you didn't track your time.
+      </p>
+      <p>
+        We know it seems like yet another thing to do, but we made TimeTrckr.com
+        really easy to use, helping you to be more productive over the
+        long run.
+      </p>
+    <% else %>
+      <p>
+        Here's a recap of your time logs from last week:
+      </p>
+      <ul class="logs">
+        <% @user.logs_last_week.each do |day, logs| %>
+          <li>
+            <p>
+              <b>
+                <%= day.strftime('%A %D') %>:
+                <%= logs.map(&:hours).sum.round(2) %> hrs
+              </b>
+            </p>
+            <% logs.each do |log| %>
+              <%= log.name %>
+              <span><%= log.hours %> hrs</span>
+              <br>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= render "mailers/footer" %>
   </div>
 </div>

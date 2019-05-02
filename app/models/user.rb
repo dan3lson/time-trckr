@@ -35,15 +35,17 @@ class User < ApplicationRecord
     logs.last_week.earliest.group_by { |log| log.started_at.beginning_of_day }
   end
 
-  # == Logs This Week
+  # == Weekly Logs (num_weeks_ago)
   #
-  # Group hours by day from this
-  # week. Used in histories#index.
+  # Group logs by day for the
+  # given week. Used in histories#index.
   #
   # @return Hash
   #
-  def logs_this_week
-    logs.this_week.latest.group_by { |log| log.started_at.beginning_of_day }
+  def weekly_logs(num_weeks_ago = 0)
+    logs.history(num_weeks_ago: num_weeks_ago)
+        .latest
+        .group_by { |log| log.started_at.beginning_of_day }
   end
 
   # == Logs Today?
@@ -67,7 +69,7 @@ class User < ApplicationRecord
   # @return Boolean
   #
   def logs_this_week?
-    logs_this_week.any?
+    weekly_logs.any?
   end
 
   # == Faux Name

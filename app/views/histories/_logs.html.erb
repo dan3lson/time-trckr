@@ -1,0 +1,24 @@
+<p class="lead mb-4">
+	Logs from
+	<%= format_date(num_weeks_ago.weeks.ago.beginning_of_week) %> to
+	<%= format_date(num_weeks_ago.weeks.ago.end_of_week) %>
+</p>
+<div class="mb-5">
+	<% if Log.empty?(logs) %>
+		<p class="text-muted">
+			<small>No logs for this week</small>
+		</p>
+	<% else %>
+			<% logs.each do |day, logs| %>
+				<p>
+					<b>
+						<%= format_date(day) %>
+						<span class="text-muted">
+							(<%= current_user.hours(logs) %> hrs)
+						</span>
+					</b>
+				</p>
+				<%= render "logs/logs", logs: logs %>
+			<% end %>
+	<% end %>
+</div>
