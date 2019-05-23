@@ -13,15 +13,7 @@
 
 			<%= log.name %>
 
-			<% if log.tags? %>
-				&nbsp;
-				&nbsp;
-				<% log.tags.a_to_z.each do |tag| %>
-					<span class="badge badge-dark">
-							<%= tag.name %>
-					</span>
-				<% end %>
-			<% end %>
+			<%= render "logs/tags", log: log %>
 
 			&nbsp;
 			&nbsp;

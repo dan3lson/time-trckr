@@ -8,7 +8,7 @@ class Tag < ApplicationRecord
   validates :name, presence: true
 
   # Scopes
-  scope :a_to_z, -> { order(:name) }
+  scope :by_name, -> { order(:name) }
 
   # == Initializer
   #
@@ -21,5 +21,18 @@ class Tag < ApplicationRecord
          .reject(&:blank?)
          .uniq
          .map { |name| user.tags.new(name: name) }
+  end
+
+  # == Hours This Day (user)
+  #
+  # Calculate how many hours were
+  # spent this day for this tag.
+  #
+  # @return Decimal
+  #
+  def hours_this_day(user, log)
+    start_date = log.started_at.beginning_of_day
+    end_date   = start_date.end_of_day
+    user.logs_for_tag(self).where(started_at: start_date..end_date).sum_hours
   end
 end

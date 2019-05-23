@@ -40,7 +40,11 @@ Rails.application.routes.draw do
   resources :logs,      only: %i[index new create edit update destroy] do
     resources :replays, only: %i[new create]
   end
-  resources :tags,        only: %i[index new create destroy]
+  resources :tags,        only: %i[index new create destroy] do
+    member do
+      get 'hours_this_day'
+    end
+  end
   resources :histories,   only: :index
   resources :conversions, only: :show
 

@@ -66,16 +66,6 @@ class Log < ApplicationRecord
     (hours * 60).round(0)
   end
 
-  # == Hours for Today
-  #
-  # The number of hours tracked for today.
-  #
-  # @return Float
-  #
-  def self.hours_for_today
-    today.sum_hours
-  end
-
   # == Sum Hours
   #
   # The added hours for the chained logs.
@@ -84,6 +74,16 @@ class Log < ApplicationRecord
   #
   def self.sum_hours
     select(:started_at, :stopped_at).map(&:hours).sum.round(2)
+  end
+
+  # == Hours for Today
+  #
+  # The number of hours tracked for today.
+  #
+  # @return Float
+  #
+  def self.hours_for_today
+    today.sum_hours
   end
 
   # == Convert (unit)

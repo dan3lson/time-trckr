@@ -103,4 +103,13 @@ class User < ApplicationRecord
   def tags?
     tags.any?
   end
+
+  # == Logs For Tag (tag)
+  #
+  # Get this user's logs for the
+  # given tag.
+  #
+  def logs_for_tag(tag)
+    logs.joins(:tags).where(tags: { id: tag.id })
+  end
 end
