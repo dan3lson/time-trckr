@@ -1,6 +1,4 @@
 <% if log.tags? %>
-	&nbsp;
-	&nbsp;
 	<% log.tags.by_name.each do |tag| %>
 	  <%= link_to hours_this_day_tag_path(tag, log_id: log),
 								remote: true do %>

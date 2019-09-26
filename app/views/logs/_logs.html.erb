@@ -1,48 +1,23 @@
 <ul class="list-group list-group-flush">
 	<% logs.each do |log| %>
 		<li class="list-group-item">
-			<b data-log-id="<%= log.id %>">
-				<%= link_to "#{log.hours}h",
-										conversion_path(log, unit: 'hours'),
-										class: "text-dark",
-										remote: true %>
-			</b>
-
-			&nbsp;
-			&nbsp;
-
-			<%= log.name %>
-
-			<%= render "logs/tags", log: log %>
-
-			&nbsp;
-			&nbsp;
-
-			<%= link_to new_log_replay_path(log, started_at: Time.current),
-									class: "text-light index",
-									title: "Replay this log",
-									remote: true do %>
-				<i class="fas fa-play"></i>
-			<% end %>
-
-			&nbsp;
-			&nbsp;
-
-			<%= link_to edit_log_path(log),
-									class: "text-light index",
-									title: "Edit this log" do %>
-				<i class="fas fa-edit"></i>
-			<% end %>
-
-			&nbsp;
-			&nbsp;
-
-			<%= link_to log_path(log),
-									class: "text-light index",
-									title: "Delete this log",
-									method: :delete do %>
-				<i class="fas fa-times"></i>
-			<% end %>
+			<div class="row">
+				<div class="col log-time">
+					<b data-log-id="<%= log.id %>">
+						<%= link_to "#{log.hours}h",
+												conversion_path(log, unit: 'hours'),
+												class: "text-dark",
+												remote: true %>
+					</b>
+				</div>
+				<div class="col log-name"><%= log.name %></div>
+				<div class="col log-tags">
+					<%= render "logs/tags", log: log %>
+				</div>
+				<div class="col log-actions">
+					<%= render "logs/actions", log: log %>
+				</div>
+			</div>
 		</li>
 	<% end %>
 </ul>

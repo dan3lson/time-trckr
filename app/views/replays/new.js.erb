@@ -1,4 +1,5 @@
 var partial = "<%= j render(partial: 'replays/stop_btn', locals: { log: @log, started_at: @started_at }) %>";
+console.log("Replayed log started at", "<%= @started_at %>");
 $(".alert").remove();
 $("#logs").remove();
 $(".container").append(partial);

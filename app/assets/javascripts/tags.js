@@ -1,7 +1,7 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
 	preFillTagsOnEditLogPage();
 
-	$("#form-tags span").click(function() {
+	$("#form-tags span").click(function () {
 		$tag = $(this);
 		tagId = $tag.data("id");
 		$tag.toggleClass("badge-dark");
@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
 	});
 
 	function preFillTagsOnEditLogPage() {
-		$(".pre-fill").each(function(index, value) {
+		$(".pre-fill").each(function (index, value) {
 			$tag = $(this);
 			tagId = $tag.data("id");
 			$tag.addClass("badge-dark");
@@ -34,7 +34,11 @@ $(document).on('turbolinks:load', function() {
 	}
 
 	function createHiddenInput(tagId) {
-		$i = $("<input/>", { type: "hidden", name: "log[tag_ids][]", value: tagId })
+		$i = $("<input/>", {
+			type: "hidden",
+			name: "log[tag_ids][]",
+			value: tagId
+		})
 		return $i;
 	}
 

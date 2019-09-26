@@ -1,0 +1,17 @@
+<%= link_to new_log_replay_path(log),
+            class: "text-light index",
+            title: "Replay this log",
+            remote: true do %>
+  <i class="fas fa-play"></i>
+<% end %>
+<%= link_to edit_log_path(log),
+            class: "text-light index",
+            title: "Edit this log" do %>
+  <i class="fas fa-edit"></i>
+<% end %>
+<%= link_to log_path(log),
+            class: "text-light index",
+            title: "Delete this log",
+            method: :delete do %>
+  <i class="fas fa-times"></i>
+<% end %>
