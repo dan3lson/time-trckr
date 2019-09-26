@@ -29,23 +29,38 @@ Rails.application.routes.draw do
                               as: 'destroy_admin_user_session'
   get    '/sign_up'        => 'clearance/users#new',    as: 'sign_up'
 
-  # == Core Features
+  # == Core Features ==
   #
   # Resources which give users
   # their main benefits throughout
   # the app.
+  #
+  #
+  #
+  #
+
+  # == Logs
   #
   get    'timer', to: 'timers#new'
   resources :timers,    only: %i[new create]
   resources :logs,      only: %i[index new create edit update destroy] do
     resources :replays, only: %i[new create]
   end
+
+  # == Tags
+  #
   resources :tags,        only: %i[index new create destroy] do
     member do
       get 'hours_this_day'
     end
   end
+
+  # == Histories
+  #
   resources :histories,   only: :index
+
+  # == Conversions
+  #
   resources :conversions, only: :show
 
   # == Sidekiq
