@@ -1,57 +1,51 @@
-<section class="mt-5 mb-5">
-	<div class="row">
-		<div class="col-lg-7">
-			<h1 class="display-4">
-				<%= link_to "#{today}", logs_path, class: "text-dark" %>
-			</h1>
-		</div>
-		<div class="col-lg-5 text-muted pt-3">
-			<div class="row">
-				<div class="col">
-					<%= link_to timer_path,
-										  class: "text-dark",
-											title: "Go to the Timer" do %>
-						<i class="fa fa-play fa-3x"></i>
-					<% end %>
-				</div>
-				<div class="col">
-					<%= link_to new_log_path,
-										  class: "text-dark",
-											title: "Manually create a log" do %>
-						<i class="fa fa-plus fa-3x"></i>
-					<% end %>
-				</div>
-				<div class="col">
-					<%= link_to tags_path,
-											class: "text-dark",
-											title: "View your tags" do %>
-						<i class="fa fa-tag fa-3x"></i>
-					<% end %>
-				</div>
-				<div class="col">
-					<%= link_to histories_path,
-											class: "text-dark",
-											title: "View Log History" do %>
-						<i class="fa fa-history fa-3x"></i>
-					<% end %>
-				</div>
-				<div class="col">
-					<% if signed_in? %>
-						<%= link_to sign_out_path,
-												class: "text-dark",
-												title: "Sign out",
-												method: :delete do %>
-							<i class="fa fa-sign-out-alt fa-3x"></i>
-						<% end %>
-					<% else %>
-						<%= link_to sign_in_path,
-												class: "text-dark",
-												title: "Sign in" do %>
-							<i class="fa fa-sign-in-alt fa-3x"></i>
-						<% end %>
-					<% end %>
-				</div>
-			</div>
-		</div>
+<div class="navbar">
+	<div class="todays-date">
+		<h1><%= link_to "#{today}", logs_path, class: "text-dark" %></h1>
 	</div>
-</section>
+	<ul class="links">
+		<li>
+			<%= link_to timer_path, 
+						class: "text-dark", 
+						title: "Go to the Timer" do %>
+				<i class="fa fa-play"></i>
+			<% end %>
+		</li>
+		<li>
+			<%= link_to new_log_path,
+						class: "text-dark",
+						title: "Manually create a log" do %>
+				<i class="fa fa-plus"></i>
+			<% end %>
+		</li>
+		<li>
+			<%= link_to tags_path,
+						class: "text-dark",
+						title: "View your tags" do %>
+				<i class="fa fa-tag"></i>
+			<% end %>
+		</li>
+		<li>
+			<%= link_to histories_path,
+						class: "text-dark",
+						title: "View Log History" do %>
+				<i class="fa fa-history"></i>
+			<% end %>
+		</li>
+		<li>
+			<% if signed_in? %>
+				<%= link_to sign_out_path,
+								class: "text-dark",
+								title: "Sign out",
+								method: :delete do %>
+					<i class="fa fa-sign-out-alt"></i>
+				<% end %>
+			<% else %>
+				<%= link_to sign_in_path,
+							class: "text-dark",
+							title: "Sign in" do %>
+					<i class="fa fa-sign-in-alt"></i>
+				<% end %>
+			<% end %>
+		</li>
+	</ul>
+</div>

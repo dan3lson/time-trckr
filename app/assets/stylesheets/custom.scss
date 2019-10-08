@@ -39,7 +39,7 @@ a:hover {
 }
 
 .fa-circle, .fa-square.fa-stack-2x {
-	color: $light;
+	color: black;
 }
 
 #form-tags {
@@ -93,7 +93,6 @@ a:hover {
   border-bottom: 2px solid #000;
   border-radius: 0;
 	height: 2.5em;
-  padding : 0 10px;
   margin: 0;
   width : 100%;
 
@@ -124,23 +123,19 @@ a:hover {
  	}
 }
 
-#timerControl {
-	height: 400px;
+// #timerControl {
+// 	height: 400px;
 
-	div {
-		left: 50%;
-		position: absolute;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-	}
+// 	div {
+// 		text-align: center;
+// 	}
 
-	.fa-play, .fa-stop {
-    @extend .icon-shadow;
+// 	.fa-play, .fa-stop {
+//     @extend .icon-shadow;
 
-		animation: shadow-pulse 1s infinite;
-	}
-}
+// 		animation: shadow-pulse 1s infinite;
+// 	}
+// }
 
 #welcome-header {
   i {

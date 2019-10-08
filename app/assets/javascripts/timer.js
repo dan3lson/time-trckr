@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-	$playIcon = $("#timerControl").find(".fa-play");
+	$playIcon = $("#timer-control").find(".fa-play");
 	$playBtn  = $playIcon.parent();
 
 	$playIcon.click(function() {
@@ -12,11 +12,11 @@ $(document).on('turbolinks:load', function() {
 		$(".fa-stop").css("animation", "none");
 	});
 
-	$("#timerControl").on("click", ".fa-stop", function() {
+	$("#timer-control").on("click", ".fa-stop", function() {
 		stopped_at = new Date();
 		$('input[name="log[stopped_at]"]').val(stopped_at);
 		console.log("stopped", stopped_at);
-		$stopIcon = $("#timerControl").remove();
+		$stopIcon = $("#timer-control").remove();
 		$(".logs-section").removeClass("d-none");
 		$nameInput = $("#log_name");
 		$nameInput.focus();

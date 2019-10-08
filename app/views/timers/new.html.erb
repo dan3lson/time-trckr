@@ -1,17 +1,13 @@
-<section id="timerControl">
+<div id="timer-control">
 	<div>
 		<button type="button" class="btn btn-link text-dark">
 			<i class="fa fa-play timer-btn"></i>
 		</button>
 	</div>
-</section>
+</div>
 
-<section class="logs-section d-none">
-	<div class="row">
-		<div class="col-md-8 offset-md-2">
-			<div class="mt-4">
-				<%= render "timers/form", log: @log %>
-			</div>
-		</div>
+<div class="logs-section">
+	<div class="timer-form">
+		<%= render "timers/form", log: @log %>
 	</div>
-</section>
+</div>
