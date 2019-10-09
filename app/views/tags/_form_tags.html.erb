@@ -1,6 +1,6 @@
-<div class="mt-5" id="form-tags">
+<div id="form-tags">
 	<% tags.each do |tag| %>
-		<span class="badge badge-secondary <%= 'pre-fill' if filled?(log, tag) %>"
+		<span class="bubble <%= 'pre-fill' if filled?(log, tag) %>"
 		      data-id="<%= tag.id %>">
 			<%= tag.name %>
 		</span>

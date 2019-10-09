@@ -1,15 +1,13 @@
 <ul class="list-group list-group-flush">
 	<% tags.each do |tag| %>
 		<li class="list-group-item">
-			<span class="badge badge-dark">
-					<%= tag.name %>
+			<span class="bubble">
+				<%= tag.name %>
 			</span>
-			&nbsp;
-			&nbsp;
 			<%= link_to tag_path(tag),
-									class: "text-light index",
-									title: "Delete this tag",
-									method: :delete do %>
+						class: "text-light index",
+						title: "Delete this tag",
+						method: :delete do %>
 				<i class="fas fa-times"></i>
 			<% end %>
 		</li>

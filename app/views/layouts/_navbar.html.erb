@@ -25,13 +25,6 @@
 			<% end %>
 		</li>
 		<li>
-			<%= link_to histories_path,
-						class: "text-dark",
-						title: "View Log History" do %>
-				<i class="fa fa-history"></i>
-			<% end %>
-		</li>
-		<li>
 			<% if signed_in? %>
 				<%= link_to sign_out_path,
 								class: "text-dark",

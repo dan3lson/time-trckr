@@ -1,8 +1,8 @@
-<ul class="list-group list-group-flush">
+<ul>
 	<% logs.each do |log| %>
-		<li class="list-group-item">
-			<div class="row">
-				<div class="col log-time">
+		<li>
+			<div>
+				<div class="log-time">
 					<b data-log-id="<%= log.id %>">
 						<%= link_to "#{log.hours}h",
 												conversion_path(log, unit: 'hours'),
@@ -10,11 +10,11 @@
 												remote: true %>
 					</b>
 				</div>
-				<div class="col log-name"><%= log.name %></div>
-				<div class="col log-tags">
+				<div class="log-name"><%= log.name %></div>
+				<div class="log-tags">
 					<%= render "logs/tags", log: log %>
 				</div>
-				<div class="col log-actions">
+				<div class="log-actions">
 					<%= render "logs/actions", log: log %>
 				</div>
 			</div>

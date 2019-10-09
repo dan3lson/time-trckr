@@ -1,18 +1,31 @@
 .navbar {
+    background-color: rgb(221, 221, 221);
    .todays-date {
-       display: flex;
-       flex-flow: row wrap;
-       justify-content: center;
+       padding: 20px 0 7px;
+
+        h1 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            text-align: center;
+        }
    }
 
    .links {
        display: flex;
-       font-size: 2rem;
+       font-size: 1.3rem;
        justify-content: space-around;
        list-style-type: none;
        margin: 0;
-       padding: 0;
+       padding: 0 0 5px 0;
    }
+}
+
+.logs-section {
+    padding: 16px;
+
+    h1 {
+        font-weight: 200;
+    }
 }
 
 #timer-control {
@@ -25,10 +38,18 @@
     }
 }
 
-@media screen and (max-width: 425px) {
-    .navbar {
-        h1 a {
-            color: red;
-        }
+#form-tags {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 16px;
+    text-align: center;
+
+    .bubble {
+        flex: 1;
+        margin: 3px;
     }
+}
+
+@media screen and (max-width: 425px) {
+
 }

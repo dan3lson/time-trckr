@@ -6,7 +6,7 @@ $h1_font_weight: 200;
   .blank-state-message {
     .col-md-6:first-child {
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      border-right:  none !important;
+      border-right: none !important;
       margin-bottom: 1em;
       margin-bottom: 1em;
     }
@@ -34,51 +34,50 @@ a:hover {
   }
 
   .col-md-6:first-child {
-    border-right:  1px solid rgba(0, 0, 0, 0.04);
+    border-right: 1px solid rgba(0, 0, 0, 0.04);
   }
 }
 
-.fa-circle, .fa-square.fa-stack-2x {
-	color: black;
-}
-
-#form-tags {
-	cursor: pointer;
-	font-size: 2rem;
+.fa-circle,
+.fa-square.fa-stack-2x {
+  color: black;
 }
 
 .icon-shadow {
   text-shadow: 1px 0px 1px #ccc, 0px 1px 1px #eee,
-               2px 1px 1px #ccc, 1px 2px 1px #eee,
-               3px 2px 1px #ccc, 2px 3px 1px #eee,
-               4px 3px 1px #ccc, 3px 4px 1px #eee,
-               5px 4px 1px #ccc, 4px 5px 1px #eee,
-               6px 5px 1px #ccc, 5px 6px 1px #eee,
-               7px 6px 1px #ccc;
+    2px 1px 1px #ccc, 1px 2px 1px #eee,
+    3px 2px 1px #ccc, 2px 3px 1px #eee,
+    4px 3px 1px #ccc, 3px 4px 1px #eee,
+    5px 4px 1px #ccc, 4px 5px 1px #eee,
+    6px 5px 1px #ccc, 5px 6px 1px #eee,
+    7px 6px 1px #ccc;
 }
 
 .index.text-light {
-	color: #e8e9ec !important;
+  color: #e8e9ec !important;
 }
 
 .input-error {
-	border-bottom: 2px solid #DC3545 !important;
+  border-bottom: 2px solid #DC3545 !important;
 }
 
 .list-group-item {
-	border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-#logs, #tags {
+#logs,
+#tags {
   ul {
     font-size: large;
   }
 }
 
-.logs-section, .new-tag-section, #clearance, {
-	h1 {
-		font-weight: $h1_font_weight;
-	}
+.new-tag-section,
+#clearance,
+  {
+  h1 {
+    font-weight: $h1_font_weight;
+  }
 }
 
 #log_name,
@@ -88,26 +87,25 @@ a:hover {
 #session_password,
 #user_email,
 #user_password {
-	background: none;
+  background: none;
   border: none;
   border-bottom: 2px solid #000;
   border-radius: 0;
-	height: 2.5em;
+  height: 2.5em;
   margin: 0;
-  width : 100%;
+  width: 100%;
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 }
 
 .timer-btn {
-	font-size: 18.5em;
+  font-size: 18.5em;
 }
 
-@keyframes shadow-pulse
-{
-	from {
+@keyframes shadow-pulse {
+  from {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
@@ -120,7 +118,7 @@ a:hover {
   to {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
- 	}
+  }
 }
 
 // #timerControl {
