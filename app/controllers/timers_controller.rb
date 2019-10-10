@@ -2,7 +2,7 @@ class TimersController < ApplicationController
   before_action :require_login
 
   def new
-    @log = Log.new
+    @log = Log.new(started_at: Time.current)
     @tags = current_user.tags
   end
 

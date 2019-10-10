@@ -1,7 +1,8 @@
 .navbar {
-    background-color: rgb(221, 221, 221);
+    background-color: #F9F9F9;
+
    .todays-date {
-       padding: 20px 0 7px;
+       padding-top: 20px;
 
         h1 {
             font-size: 1.3rem;
@@ -13,28 +14,29 @@
    .links {
        display: flex;
        font-size: 1.3rem;
-       justify-content: space-around;
        list-style-type: none;
        margin: 0;
-       padding: 0 0 5px 0;
+       padding: 0;
+       text-align: center;
+
+       li {
+           flex: 1;
+           padding: 6px 0;
+       }
    }
 }
 
-.logs-section {
+.auto-timer-stop {
+    height: calc(100vh - 93.92px);
+    background-color: #FF3B30;
+}
+
+.auto-timer-form {
+    display: none;
     padding: 16px;
 
     h1 {
         font-weight: 200;
-    }
-}
-
-#timer-control {
-    display: none;
-    flex-flow: row nowrap;
-    height: 500px;
-
-    div {
-        margin: auto;
     }
 }
 

@@ -1,13 +1,13 @@
 <%= form_with url: timers_path, scope: :log do |f| %>
 	<div>
-		<h1>What did you work on?</h1>
+		<h1>What did you do?</h1>
 		<%= f.label :name, class: "sr-only" %>
 		<%= f.text_field :name,
 						class: "form-control",
 						placeholder: "e.g. Take a 'quick' nap" %>
 	</div>
 	<div>
-		<%= f.hidden_field :started_at %>
+		<%= f.hidden_field :started_at, value: log.started_at %>
 		<%= f.hidden_field :stopped_at %>
 	</div>
 	<%= render "tags/form_tags", log: log, tags: @tags %>
